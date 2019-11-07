@@ -2,6 +2,7 @@ package com.codeup.pets.models;
 
 import javax.persistence.*;
 import java.time.LocalDate;
+import java.util.List;
 
 @Entity
 @Table (name = "pets")
@@ -20,8 +21,11 @@ public class Pet {
     @Column(columnDefinition = "VARCHAR(100) NOT NULL DEFAULT 'Unknown'")
     private String species;
 
-//    @OneToOne
-//    private PetDetails petDetails;
+    @OneToOne
+    private PetDetails petDetails;
+
+//    @OneToMany(mappedBy = "pet", cascade = CascadeType.ALL)
+//    private List<Toy> toys;
 
     public Pet() {
     }
@@ -64,11 +68,19 @@ public class Pet {
         this.species = species;
     }
 
-//    public PetDetails getPetDetails() {
-//        return petDetails;
+    public PetDetails getPetDetails() {
+        return petDetails;
+    }
+
+    public void setPetDetails(PetDetails petDetails) {
+        this.petDetails = petDetails;
+    }
+
+//    public List<Toy> getToys() {
+//        return toys;
 //    }
 //
-//    public void setPetDetails(PetDetails petDetails) {
-//        this.petDetails = petDetails;
+//    public void setToys(List<Toy> toys) {
+//        this.toys = toys;
 //    }
 }

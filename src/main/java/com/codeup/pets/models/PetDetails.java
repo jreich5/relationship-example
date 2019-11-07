@@ -18,8 +18,8 @@ public class PetDetails {
     @Column
     private float weightInOunces;
 
-//    @OneToOne(mappedBy = "petDetails")
-//    private Pet pet;
+    @OneToOne(mappedBy = "petDetails")
+    private Pet pet;
 
     public PetDetails() {
     }
@@ -62,11 +62,11 @@ public class PetDetails {
         this.weightInOunces = weightInOunces;
     }
 
-//    public Pet getPet() {
-//        return pet;
-//    }
-//
-//    public void setPet(Pet pet) {
-//        this.pet = pet;
-//    }
+    public Pet getPet() {
+        return pet;
+    }
+
+    public void setPet(Pet pet) {
+        this.pet = pet;
+    }
 }

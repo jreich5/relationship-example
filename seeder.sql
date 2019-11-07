@@ -1,6 +1,5 @@
 use pets_db;
 
-
 # seed pet_details
 insert into pet_details (is_sterile, personality_description, weight_in_ounces) values
 (true, 'A good dog', 45.23),
@@ -17,4 +16,10 @@ insert into pets (name, dob, species, pet_details_id) values
 ('Parky', '2010-01-01', 'Alligator', 4),
 ('Bubbles', '2010-01-01', 'Snake', 5);
 
+# seed toys
+insert into toys (name, brand, is_destroyed, description, pet_id) values
+('Chew Toy', 'Chew Toys Inc.', false, 'A fun chew toy', 1),
+('Plush Toy', 'Plush Toys Inc.', true, 'A shredded plush toy', 1),
+('Bone', 'Bones Inc.', false, 'A gnawed bone', 1),
+('Rope', 'Ropes Inc.', false, 'A fun rope', 1);
 

@@ -6,13 +6,35 @@
 </head>
 <body>
 
-    <h1 th:text="${pet.name}"></h1>
-    <h3 th:text="${pet.petDetails.personalityDescription}"></h3>
+    <!--  TESTING ONE TO ONE  -->
 
-    <form th:action="@{'/pets/update/' + ${pet.id}}" th:method="post">
-        <label for="personality">Personality</label>
-        <input id="personality" type="text" name="personality" th:value="${pet.petDetails.personalityDescription}">
-        <button>Change Personality</button>
+
+<!--    <h1 th:text="${pet.name}"></h1>-->
+<!--    <h3 th:text="${pet.petDetails.personalityDescription}"></h3>-->
+
+<!--    <form th:action="@{'/pets/update/' + ${pet.id}}" th:method="post">-->
+<!--        <label for="personality">Personality</label>-->
+<!--        <input id="personality" type="text" name="personality" th:value="${pet.petDetails.personalityDescription}">-->
+<!--        <button>Change Personality</button>-->
+<!--    </form>-->
+
+
+    <!-- TESTING ONE TO MANY -->
+
+    <h1><span th:text="${pet.name}"></span> toys...</h1>
+
+    <ul th:each="toy : ${pet.toys}">
+        <li th:text="${toy.name}"></li>
+    </ul>
+
+
+    <form th:action="@{'/pets/' + ${pet.id} + '/add-toy'}" th:method="post">
+<!--        name, brand, is_destroyed, description, pet_id-->
+        <input type="text" name="name" placeholder="enter name">
+        <input type="text" name="brand" placeholder="enter brand">
+        <input type="checkbox" placeholder="is destroyed" name="isDestroyed">
+        <input type="text" name="description" placeholder="enter description">
+        <button>Add Toy</button>
     </form>
 
 </body>
