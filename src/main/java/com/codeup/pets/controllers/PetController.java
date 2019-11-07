@@ -52,20 +52,20 @@ public class PetController {
     }
 
     // TESTING ONE TO MANY RELATIONSHIP...
-    @PostMapping("/pets/{id}/add-toy")
-    public String addToy(
-            @PathVariable int id,
-            @RequestParam String name,
-            @RequestParam String brand,
-            @RequestParam boolean isDestroyed,
-            @RequestParam String description) {
-
-        Toy toy = new Toy(name, brand, isDestroyed, description);
-        toy.setPet(petDao.getOne(id));
-        toyDao.save(toy);
-
-        return "redirect:/pets";
-    }
+//    @PostMapping("/pets/{id}/add-toy")
+//    public String addToy(
+//            @PathVariable int id,
+//            @RequestParam String name,
+//            @RequestParam String brand,
+//            @RequestParam boolean isDestroyed,
+//            @RequestParam String description) {
+//
+//        Toy toy = new Toy(name, brand, isDestroyed, description);
+//        toy.setPet(petDao.getOne(id));
+//        toyDao.save(toy);
+//
+//        return "redirect:/pets";
+//    }
 
 
 }
