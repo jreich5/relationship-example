@@ -6,12 +6,15 @@ import com.codeup.pets.models.Toy;
 import com.codeup.pets.models.Vet;
 import com.codeup.pets.repositories.PetRepo;
 import com.codeup.pets.repositories.ToyRepo;
+import com.codeup.pets.repositories.VetRepo;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestParam;
+
+import java.util.List;
 
 @Controller
 public class PetController {
@@ -83,8 +86,11 @@ public class PetController {
             @RequestParam String name,
             @RequestParam String address,
             @RequestParam String phoneNumber) {
+
         Pet p = petDao.getOne(id);
-        p.getVets().add(new Vet(name, address, phoneNumber));
+        List<Vet> vets = p.getVets();
+        vets.add(new Vet(name, address, phoneNumber));
+        p.setVets(vets);
         petDao.save(p);
         return "redirect:/pet-vets";
     }
