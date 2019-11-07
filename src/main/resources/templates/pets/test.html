@@ -1,0 +1,19 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+
+    <h1 th:text="${pet.name}"></h1>
+    <h3 th:text="${pet.petDetails.personalityDescription}"></h3>
+
+    <form th:action="@{'/pets/update/' + ${pet.id}}" th:method="post">
+        <label for="personality">Personality</label>
+        <input id="personality" type="text" name="personality" th:value="${pet.petDetails.personalityDescription}">
+        <button>Change Personality</button>
+    </form>
+
+</body>
+</html>

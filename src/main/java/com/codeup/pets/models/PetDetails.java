@@ -6,6 +6,7 @@ import javax.persistence.*;
 public class PetDetails {
 
     @Id
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
     private int id;
 
     @Column
@@ -17,8 +18,7 @@ public class PetDetails {
     @Column
     private float weightInOunces;
 
-    @OneToOne
-    @MapsId
+    @OneToOne(mappedBy = "petDetails")
     private Pet pet;
 
     public PetDetails() {

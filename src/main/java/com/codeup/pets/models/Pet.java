@@ -20,7 +20,7 @@ public class Pet {
     @Column(columnDefinition = "VARCHAR(100) NOT NULL DEFAULT 'Unknown'")
     private String species;
 
-    @OneToOne(mappedBy = "pet")
+    @OneToOne
     private PetDetails petDetails;
 
     public Pet() {
@@ -62,5 +62,13 @@ public class Pet {
 
     public void setSpecies(String species) {
         this.species = species;
+    }
+
+    public PetDetails getPetDetails() {
+        return petDetails;
+    }
+
+    public void setPetDetails(PetDetails petDetails) {
+        this.petDetails = petDetails;
     }
 }
