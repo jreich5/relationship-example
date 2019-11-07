@@ -20,6 +20,9 @@ public class Pet {
     @Column(columnDefinition = "VARCHAR(100) NOT NULL DEFAULT 'Unknown'")
     private String species;
 
+    @OneToOne(mappedBy = "pet")
+    private PetDetails petDetails;
+
     public Pet() {
     }
 

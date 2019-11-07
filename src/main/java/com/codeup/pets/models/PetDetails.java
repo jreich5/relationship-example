@@ -1,15 +1,11 @@
 package com.codeup.pets.models;
 
-import javax.persistence.Column;
-import javax.persistence.Entity;
-import javax.persistence.GeneratedValue;
-import javax.persistence.Id;
+import javax.persistence.*;
 
 @Entity
 public class PetDetails {
 
     @Id
-    @GeneratedValue
     private int id;
 
     @Column
@@ -20,6 +16,10 @@ public class PetDetails {
 
     @Column
     private float weightInOunces;
+
+    @OneToOne
+    @MapsId
+    private Pet pet;
 
     public PetDetails() {
     }
