@@ -3,6 +3,7 @@ package com.codeup.pets.controllers;
 import com.codeup.pets.models.Pet;
 import com.codeup.pets.models.PetDetails;
 import com.codeup.pets.models.Toy;
+import com.codeup.pets.models.Vet;
 import com.codeup.pets.repositories.PetRepo;
 import com.codeup.pets.repositories.ToyRepo;
 import org.springframework.stereotype.Controller;
@@ -52,20 +53,42 @@ public class PetController {
     }
 
     // TESTING ONE TO MANY RELATIONSHIP...
-//    @PostMapping("/pets/{id}/add-toy")
-//    public String addToy(
-//            @PathVariable int id,
-//            @RequestParam String name,
-//            @RequestParam String brand,
-//            @RequestParam boolean isDestroyed,
-//            @RequestParam String description) {
-//
-//        Toy toy = new Toy(name, brand, isDestroyed, description);
-//        toy.setPet(petDao.getOne(id));
-//        toyDao.save(toy);
-//
-//        return "redirect:/pets";
-//    }
+    @PostMapping("/pets/{id}/add-toy")
+    public String addToy(
+            @PathVariable int id,
+            @RequestParam String name,
+            @RequestParam String brand,
+            @RequestParam boolean isDestroyed,
+            @RequestParam String description) {
+
+        Toy toy = new Toy(name, brand, isDestroyed, description);
+        toy.setPet(petDao.getOne(id));
+        toyDao.save(toy);
+
+        return "redirect:/pets";
+    }
+
+
+    // TESTING MANY TO MANY RELATIONSHIP...
+
+    @GetMapping("/pet-vets")
+    public String getPetVets(Model model) {
+        model.addAttribute("pets", petDao.findAll());
+        return "pets/test";
+    }
+
+    @PostMapping("/vets/pet/{id}")
+    public String assignNewVetToPet(
+            @PathVariable int id,
+            @RequestParam String name,
+            @RequestParam String address,
+            @RequestParam String phoneNumber) {
+        Pet p = petDao.getOne(id);
+        p.getVets().add(new Vet(name, address, phoneNumber));
+        petDao.save(p);
+        return "redirect:/pet-vets";
+    }
+
 
 
 }

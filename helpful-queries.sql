@@ -8,6 +8,10 @@ describe pets;
 describe pet_details;
 describe toys;
 
+select * from vets;
+
+select * from pet_vet;
+
 
 
 select * from pets;

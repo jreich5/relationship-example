@@ -23,3 +23,16 @@ insert into toys (name, brand, is_destroyed, description, pet_id) values
 ('Bone', 'Bones Inc.', false, 'A gnawed bone', 1),
 ('Rope', 'Ropes Inc.', false, 'A fun rope', 1);
 
+# seed vets
+insert into vets (name, address, phone_number) values
+('Hill Country Vet', '123 Country Lane', '5553334343'),
+('San Antonio Feline Hospital', 'Suite 1518', '5556547777'),
+('Equine Rehap Center', '1 Circle Bluff', '5558882222');
+
+# seed pet_vet
+insert into pet_vet (pet_id, vet_id) values
+(1, 1),
+(1, 2),
+(2, 1),
+(3, 1),
+(4, 1);
