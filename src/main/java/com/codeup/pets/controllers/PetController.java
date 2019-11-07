@@ -14,6 +14,7 @@ import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 
+import java.util.Arrays;
 import java.util.List;
 
 @Controller
@@ -21,10 +22,12 @@ public class PetController {
 
     private final PetRepo petDao;
     private final ToyRepo toyDao;
+    private final VetRepo vetDao;
 
-    public PetController(PetRepo petDao, ToyRepo toyDao) {
+    public PetController(PetRepo petDao, ToyRepo toyDao, VetRepo vetDao) {
         this.petDao = petDao;
         this.toyDao = toyDao;
+        this.vetDao = vetDao;
     }
 
     @GetMapping("/pets")
@@ -88,10 +91,10 @@ public class PetController {
             @RequestParam String phoneNumber) {
 
         Pet p = petDao.getOne(id);
-        List<Vet> vets = p.getVets();
-        vets.add(new Vet(name, address, phoneNumber));
-        p.setVets(vets);
-        petDao.save(p);
+
+        // create a new vet and associate the vet with a given pet
+        vetDao.save(new Vet(name, address, phoneNumber, Arrays.asList(p)));
+
         return "redirect:/pet-vets";
     }
 
