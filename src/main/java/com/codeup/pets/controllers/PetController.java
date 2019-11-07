@@ -83,20 +83,20 @@ public class PetController {
         return "pets/test";
     }
 
-    @PostMapping("/vets/pet/{id}")
-    public String assignNewVetToPet(
-            @PathVariable int id,
-            @RequestParam String name,
-            @RequestParam String address,
-            @RequestParam String phoneNumber) {
-
-        Pet p = petDao.getOne(id);
-
-        // create a new vet and associate the vet with a given pet
-        vetDao.save(new Vet(name, address, phoneNumber, Arrays.asList(p)));
-
-        return "redirect:/pet-vets";
-    }
+//    @PostMapping("/vets/pet/{id}")
+//    public String assignNewVetToPet(
+//            @PathVariable int id,
+//            @RequestParam String name,
+//            @RequestParam String address,
+//            @RequestParam String phoneNumber) {
+//
+//        Pet p = petDao.getOne(id);
+//
+//        // create a new vet and associate the vet with a given pet
+//        vetDao.save(new Vet(name, address, phoneNumber, Arrays.asList(p)));
+//
+//        return "redirect:/pet-vets";
+//    }
 
 
 

@@ -20,13 +20,13 @@ public class Vet {
     @Column(length = 20, nullable = false)
     private String phoneNumber;
 
-    @ManyToMany(cascade = CascadeType.ALL)
-    @JoinTable(
-            name = "pet_vet",
-            joinColumns = {@JoinColumn(name="pet_id")},
-            inverseJoinColumns = {@JoinColumn(name="vet_id")}
-    )
-    private List<Pet> pets;
+//    @ManyToMany(cascade = CascadeType.ALL)
+//    @JoinTable(
+//            name = "pet_vet",
+//            joinColumns = {@JoinColumn(name="pet_id")},
+//            inverseJoinColumns = {@JoinColumn(name="vet_id")}
+//    )
+//    private List<Pet> pets;
 
     public Vet() {
     }
@@ -41,7 +41,7 @@ public class Vet {
         this.name = name;
         this.address = address;
         this.phoneNumber = phoneNumber;
-        this.pets = pets;
+//        this.pets = pets;
     }
 
     public int getId() {
@@ -76,13 +76,13 @@ public class Vet {
         this.phoneNumber = phoneNumber;
     }
 
-    public List<Pet> getPets() {
-        return pets;
-    }
-
-    public void setPets(List<Pet> pets) {
-        this.pets = pets;
-    }
+//    public List<Pet> getPets() {
+//        return pets;
+//    }
+//
+//    public void setPets(List<Pet> pets) {
+//        this.pets = pets;
+//    }
 
 
 }
