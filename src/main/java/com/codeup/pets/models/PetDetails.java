@@ -18,8 +18,8 @@ public class PetDetails {
     @Column
     private float weightInOunces;
 
-    @OneToOne(mappedBy = "petDetails")
-    private Pet pet;
+//    @OneToOne(mappedBy = "petDetails")
+//    private Pet pet;
 
     public PetDetails() {
     }
@@ -28,6 +28,14 @@ public class PetDetails {
         this.isSterile = isSterile;
         this.personalityDescription = personalityDescription;
         this.weightInOunces = weightInOunces;
+    }
+
+    public int getId() {
+        return id;
+    }
+
+    public void setId(int id) {
+        this.id = id;
     }
 
     public boolean isSterile() {
@@ -53,4 +61,12 @@ public class PetDetails {
     public void setWeightInOunces(float weightInOunces) {
         this.weightInOunces = weightInOunces;
     }
+
+//    public Pet getPet() {
+//        return pet;
+//    }
+//
+//    public void setPet(Pet pet) {
+//        this.pet = pet;
+//    }
 }

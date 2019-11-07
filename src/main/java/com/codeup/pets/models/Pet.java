@@ -20,8 +20,8 @@ public class Pet {
     @Column(columnDefinition = "VARCHAR(100) NOT NULL DEFAULT 'Unknown'")
     private String species;
 
-    @OneToOne
-    private PetDetails petDetails;
+//    @OneToOne
+//    private PetDetails petDetails;
 
     public Pet() {
     }
@@ -64,11 +64,11 @@ public class Pet {
         this.species = species;
     }
 
-    public PetDetails getPetDetails() {
-        return petDetails;
-    }
-
-    public void setPetDetails(PetDetails petDetails) {
-        this.petDetails = petDetails;
-    }
+//    public PetDetails getPetDetails() {
+//        return petDetails;
+//    }
+//
+//    public void setPetDetails(PetDetails petDetails) {
+//        this.petDetails = petDetails;
+//    }
 }
