@@ -12,6 +12,8 @@ select * from vets;
 
 select * from pet_vet;
 
+describe pet_vet;
+
 
 
 select * from pets;
