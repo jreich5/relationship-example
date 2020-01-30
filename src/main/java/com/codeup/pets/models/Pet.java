@@ -24,8 +24,8 @@ public class Pet {
     @OneToOne
     private PetDetails petDetails;
 
-//    @OneToMany(mappedBy = "pet", cascade = CascadeType.ALL)
-//    private List<Toy> toys;
+    @OneToMany(mappedBy = "pet", cascade = CascadeType.ALL)
+    private List<Toy> toys;
 
     public Pet() {
     }
@@ -76,11 +76,11 @@ public class Pet {
         this.petDetails = petDetails;
     }
 
-//    public List<Toy> getToys() {
-//        return toys;
-//    }
-//
-//    public void setToys(List<Toy> toys) {
-//        this.toys = toys;
-//    }
+    public List<Toy> getToys() {
+        return toys;
+    }
+
+    public void setToys(List<Toy> toys) {
+        this.toys = toys;
+    }
 }

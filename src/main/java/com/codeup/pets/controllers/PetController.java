@@ -60,9 +60,9 @@ public class PetController {
             @RequestParam boolean isDestroyed,
             @RequestParam String description) {
 
-        Toy toy = new Toy(name, brand, isDestroyed, description);
-        toy.setPet(petDao.getOne(id));
-        toyDao.save(toy);
+//        Toy toy = new Toy(name, brand, isDestroyed, description);
+//        toy.setPet(petDao.getOne(id));
+//        toyDao.save(toy);
 
         return "redirect:/pets";
     }

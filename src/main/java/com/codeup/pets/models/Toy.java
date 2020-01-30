@@ -23,9 +23,9 @@ public class Toy {
     @Column(columnDefinition = "TEXT")
     private String description;
 
-//    @ManyToOne
-//    @JoinColumn(name = "pet_id")
-//    private Pet pet;
+    @ManyToOne(cascade = CascadeType.ALL)
+    @JoinColumn(name = "pet_id")
+    private Pet pet;
 
     public Toy() {
     }
@@ -77,11 +77,11 @@ public class Toy {
         this.description = description;
     }
 
-//    public Pet getPet() {
-//        return pet;
-//    }
-//
-//    public void setPet(Pet pet) {
-//        this.pet = pet;
-//    }
+    public Pet getPet() {
+        return pet;
+    }
+
+    public void setPet(Pet pet) {
+        this.pet = pet;
+    }
 }
